@@ -1,0 +1,20 @@
+# 2. Выведите только чётные числа от 1 до 10.
+# Пример: 2,4,6,8,10
+
+DELIMITER $$ 
+
+CREATE PROCEDURE even_nums (IN count_number INT, OUT res VARCHAR(255))
+BEGIN
+  DECLARE i int DEFAULT 2;
+
+  SET res = '';
+
+  WHILE i < count_number DO
+    SET res = CONCAT(res, CAST(i AS char), ' '); 
+    SET i = i + 2;
+  END WHILE;
+
+END
+$$
+
+DELIMITER ;
